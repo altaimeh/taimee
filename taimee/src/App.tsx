@@ -1,28 +1,33 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import taimeeLogo from './assets/taimeeLogoWithoutBackground.png';
-import viteLogo from '/vite.svg'
-
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css'
-
+import Navbar from './components/Navbar';
+import { Route, Routes } from "react-router-dom"
+import About from './components/pages/About';
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
+      <Navbar />
+      <div className="container">
+        <Routes>
 
-        <a href="https://github.com/altaimeh" target="_blank">
-          <img src={taimeeLogo} alt="Taimee Logo" style={{ width: '200px' }} />
-        </a>
+
+          <Route path="/about" element={<About />} />
+        </Routes>
       </div>
-      <h1>Homepage</h1>
 
-      <p className="read-the-docs">
-        Click on my logo to see my github profile!
-      </p>
+      <div style={{ marginTop: '100px' }}> {/* Pushes content below navbar */}
+
+        <h1>Homepage</h1>
+        <p className="read-the-docs">
+          Click on my logo to see my GitHub profile!
+        </p>
+      </div>
     </>
-  )
+  );
 }
+
 
 export default App
