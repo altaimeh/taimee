@@ -4,9 +4,10 @@ import taimeeLogo from '../assets/taimeeLogoWithoutBackground.png';
 export default function Navbar() {
     return (
         <nav className="nav">
-            <a href="/" target="_blank">
+            <Link to="/" className="site-title">
                 <img src={taimeeLogo} alt="Taimee Logo" style={{ width: '200px' }} />
-            </a>
+
+            </Link>
             <ul>
 
                 <CustomLink to="/about">About</CustomLink>
@@ -27,9 +28,10 @@ function CustomLink({ to, children, ...props }: CustomLinkProps) {
 
     return (
         <li className={isActive ? "active" : ""}>
-            <Link to={to} {...props}>
+            <Link to={to} className="nav-link-bold" {...props}>
                 {children}
             </Link>
         </li>
     );
 }
+
