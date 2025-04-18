@@ -2,34 +2,27 @@ import taimeeLogo from './assets/taimeeLogoWithoutBackground.png';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
 import Navbar from './components/Navbar';
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import About from './components/pages/About';
 import Projects from './components/pages/Projects';
+import professionalPicture from './assets/professionalPictureNoBackground.png';
+import Home from './components/pages/Home';
 
 function App() {
   return (
     <>
-      <Navbar />
-      <div className="container">
-        <Routes>
-          <Route path="/" element={
-            <div className="homepage">
-              <div className="hero-section">
-
-                <h1 className="hero-title">Hi, I'm Taimee</h1>
-                <p className="hero-subtitle">Full Stack Developer • Problem Solver • Tech Enthusiast</p>
-                <div className="hero-buttons">
-                  <a href="https://github.com/altaimeh" target="_blank" className="btn-primary">Visit GitHub</a>
-
-                </div>
-              </div>
-            </div>
-          } />
-
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
+      <div className="App">
+        <Router>
+          <div>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="*" element={<div>404 Not Found</div>}></Route>
+            </Routes>
+          </div>
+        </Router>
       </div>
+
     </>
   );
 }
